@@ -45,17 +45,9 @@ will be continuous outside of class via Google Hangouts.
 
 **How will work be divided among team members?**
 
-Example answer: First we will divide the work load into a few pieces, e.g 4-8
-pieces. We will rate each task with a score between 1 and 5. For example, we
-divide the lab into 5 smaller tasks with score 1,1,4,5,10. Then each of us four
-will do around 5 points. We roll a dice to determine who to pick first.  The
-result could be that one picks the first 3 tasks, the second picks the
-5-pointer and the rest two work on the 10-pointer together.
-
-(Besides coding, tasks include printing the code and the sheets, etc.)
-
 **What will you do if one or more team members are not doing their share of the work?**
 
+<<<<<<< HEAD
 Example answer: We are aware of the difference in ability among the team
 members. While picking the tasks (according to the answer for the above
 question), some member can consider take less work. As long as everybody keeps
