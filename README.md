@@ -31,7 +31,7 @@ the section.)
 **Is it acceptable for one or two team members to do more work than the others
 in order to get the team an A?**
 
-Answer:
+Answer:Do what you gotta do for the A.
 
 **How will you use the in-class time?**
 
@@ -40,7 +40,8 @@ assignment and keeping track of the progress.
 
 **How often will you meet outside of class?**
 
-Answer:
+Answer: Once per week at the group's discretion, generally in the evening. Communication
+will be continuous outside of class via Google Hangouts.
 
 **How will work be divided among team members?**
 
@@ -65,6 +66,8 @@ partial grade the member should receive for the particular lab in progress. For
 example, this member may only receive 75% of the grades the team get for this
 lab.
 
+Answer: Shots.
+
 (Such decisions must be reported to the instructor in written form. The member
 receiving the penalty may switch to another team at the instructor's discretion
 after the certain lab is finished.)
@@ -79,9 +82,10 @@ Example answer: Using the following table
 | Scope and Stabilizer classes | John Doe | 10/11/18 | Scope done; Stabilizer 50% (10/09/18) |
 | Hard copy | John Doe | 10/17/18 | Cannot print: code not finished |
 
+Answer: Use gitLab and informal communication per issue.
 
 # Team Meeting Log
 
 | Meeting # | When | Where | Attendees | Note |
 |---|---|---|---|---|
-| 1 | 10a-11a, 10/08 | MCT162 | All members | Meet the team |
+| 1 | 12p-2p, 10/08 | MCT162 | All members | Meet the team |
