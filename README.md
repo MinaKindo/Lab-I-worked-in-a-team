@@ -66,7 +66,7 @@ partial grade the member should receive for the particular lab in progress. For
 example, this member may only receive 75% of the grades the team get for this
 lab.
 
-Answer: Shots.
+Answer: Shots. Of mustard.
 
 (Such decisions must be reported to the instructor in written form. The member
 receiving the penalty may switch to another team at the instructor's discretion
