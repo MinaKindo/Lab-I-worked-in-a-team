@@ -1,27 +1,7 @@
-# Instructions (Delete this section when you start the lab)
-
-## Mark down format
-
-Bullet items:
-
-* an item
-  * a sub item
-* another item
-* one more item
-
-1. numbered
-1. numbered
-1. numbered
-
-Italic _italic_
-
-Bold __bold__
-
-More on [mark down format](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 # Lab 4 Description
 
-Write a brief description here.
+Assembling the Weapons - adding weapon functionality to our game.
 
 # Team Contract
 
@@ -39,12 +19,17 @@ collectively do what must be done in order to complete the project by the deadli
 Example answer: We will spend most of our in-class time discussing work
 assignment and keeping track of the progress.
 
+Answer: We will spend time in class organizing our progress and making sure each
+individual is up to date on their assigned work.
+
 **How often will you meet outside of class?**
 
 Answer: Once per week at the group's discretion, generally in the evening. Communication
 will be continuous outside of class via Google Hangouts.
 
 **How will work be divided among team members?**
+
+Answer: Work will be assigned based on each individual's strength, after the work is divided.
 
 **What will you do if one or more team members are not doing their share of the work?**
 
@@ -85,3 +70,4 @@ Answer: Use gitLab and informal communication per issue.
 | Meeting # | When | Where | Attendees | Note |
 |---|---|---|---|---|
 | 1 | 12p-2p, 10/08 | MCT162 | All members | Meet the team |
+| 2 | 12p-2p, 10/17 | MCT162 | All members | Started Lab 4 |
