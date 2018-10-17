@@ -31,7 +31,8 @@ the section.)
 **Is it acceptable for one or two team members to do more work than the others
 in order to get the team an A?**
 
-Answer:Do what you gotta do for the A.
+Answer: Although we prefer that all group members participate equally, the team will
+collectively do what must be done in order to complete the project by the deadline.
 
 **How will you use the in-class time?**
 
@@ -58,7 +59,10 @@ partial grade the member should receive for the particular lab in progress. For
 example, this member may only receive 75% of the grades the team get for this
 lab.
 
-Answer: Shots. Of mustard.
+Answer: Given the restricted schedule of our team, the consensus of our group 
+is to simply maintain a positive attitude and do everything in his or her power 
+to contribute equally to the team. If members do not make critical deadlines, 
+we will decide collectively what level of credit said member should recieve.
 
 (Such decisions must be reported to the instructor in written form. The member
 receiving the penalty may switch to another team at the instructor's discretion
