@@ -1,23 +1,49 @@
 package weapon;
 
+import exceptions.WeaponException;
+
 public class ChainGun extends GenericWeapon {
 
-  @Override
-  public void updateTime(int time) {
-    // TODO Auto-generated method stub
-    
+  /**
+   * Kamrin Langan
+   */
+  public ChainGun() {
+    baseDamage = 15;
+    maxRange = 30;
+    maxAmmo = 40;
+    currentAmmo = maxAmmo;
+    rateOfFire = 4;
   }
 
   @Override
-  public int fire(int distance) {
-    // TODO Auto-generated method stub
-    return 0;
+  public void updateTime(int time) {
+
+  }
+
+  @Override
+  public int fire(int distance) throws WeaponException {
+    int damage;
+
+    if (distance < 0) {
+      throw new WeaponException("Distance must be greater than 0!");
+    }
+
+    if (distance > maxRange || currentAmmo == 0) {
+      damage = 0;
+    } else {
+      damage = Double.valueOf(Math.floor(baseDamage * (distance / maxRange))).intValue();
+    }
+
+    if (currentAmmo > 0) {
+      currentAmmo--;
+    }
+    return damage;
   }
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
-    return null;
+
+    return "Chain Gun";
   }
 
 }
