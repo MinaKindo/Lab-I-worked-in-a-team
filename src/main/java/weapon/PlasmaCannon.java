@@ -10,12 +10,12 @@ public class PlasmaCannon extends GenericWeapon {
     baseDamage = 50;
     rateOfFire = 1;
     maxRange = 20;
+    shotsLeft = rateOfFire;
   }
 
   @Override
   public void updateTime(int time) {
-    // TODO Auto-generated method stub
-
+    shotsLeft = rateOfFire;
   }
 
   @Override
@@ -29,8 +29,10 @@ public class PlasmaCannon extends GenericWeapon {
     if (distance > maxRange) {
       damage = 0;
     }
-    if (currentAmmo > 0) {
-      currentAmmo--;
+    if (shotsLeft > 0) {
+      damage = 0;
+    }else if (currentAmmo > 0) {
+        currentAmmo--;
     }
     return Double.valueOf(Math.floor(damage)).intValue();
   }
