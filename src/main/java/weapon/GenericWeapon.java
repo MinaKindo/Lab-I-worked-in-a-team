@@ -14,6 +14,9 @@ public abstract class GenericWeapon implements Weapon {
   }
 
   public abstract int fire(int distance);
+  
+  @Override
+  public abstract String toString();
 
   public int getNumAttachments() {
     return 0;
@@ -21,11 +24,6 @@ public abstract class GenericWeapon implements Weapon {
 
   public void reload() {
 
-  }
-
-  @Override
-  public String toString() {
-    return "Name and attachment filler";
   }
   
   public int getBaseDamage()  {
