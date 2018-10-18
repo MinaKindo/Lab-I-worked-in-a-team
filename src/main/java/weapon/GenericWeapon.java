@@ -1,5 +1,7 @@
 package weapon;
 
+import exceptions.WeaponException;
+
 public abstract class GenericWeapon implements Weapon {
 
   protected int baseDamage;
@@ -13,7 +15,7 @@ public abstract class GenericWeapon implements Weapon {
     System.out.println("Generic Weapon Created!");
   }
 
-  public abstract int fire(int distance);
+  public abstract int fire(int distance) throws WeaponException;
   
   @Override
   public abstract String toString();
