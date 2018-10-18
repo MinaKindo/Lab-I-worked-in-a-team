@@ -1,6 +1,6 @@
 package weapon;
 
-public abstract class MockWeapon extends GenericWeapon {
+public class MockWeapon extends GenericWeapon {
 
   public MockWeapon() {
     super();

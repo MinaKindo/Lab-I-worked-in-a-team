@@ -16,11 +16,7 @@ public abstract class GenericWeapon implements Weapon {
   }
 
   public abstract int fire(int distance) throws WeaponException;
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> c6ea2de074dc2c9dfbbe7fe29c12b133a41a45de
   @Override
   public abstract String toString();
 

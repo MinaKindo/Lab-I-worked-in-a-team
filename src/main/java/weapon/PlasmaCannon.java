@@ -23,7 +23,7 @@ public class PlasmaCannon extends GenericWeapon {
     
     double damage = baseDamage * (currentAmmo/maxAmmo);
     if (distance < 0) {
-      throw new WeaponException("Distance must be greater than 0!");
+      throw new WeaponException("Distance must be greater than or equal to 0!");
     }
     
     if (distance > maxRange || currentAmmo == 0) {
