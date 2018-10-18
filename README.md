@@ -71,3 +71,4 @@ Answer: Use gitLab and informal communication per issue.
 |---|---|---|---|---|
 | 1 | 12p-2p, 10/08 | MCT162 | All members | Meet the team |
 | 2 | 12p-2p, 10/17 | MCT162 | All members | Started Lab 4 |
+| 3 | 12p-4p, 10/18 | MCT162 | All members | Continue Lab 4 |

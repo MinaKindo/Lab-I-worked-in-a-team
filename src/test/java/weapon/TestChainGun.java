@@ -30,8 +30,7 @@ public class TestChainGun {
     
     cg.reload();
     assertEquals(cg.maxAmmo, cg.currentAmmo);
-    
-    
+
   }
 
 }

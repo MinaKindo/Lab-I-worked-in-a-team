@@ -22,8 +22,7 @@ public class ChainGun extends GenericWeapon {
 
   @Override
   public int fire(int distance) throws WeaponException {
-    int damage;
-
+    double damage;
     if (distance < 0) {
       throw new WeaponException("Distance must be greater than 0!");
     }
@@ -31,19 +30,19 @@ public class ChainGun extends GenericWeapon {
     if (distance > maxRange || currentAmmo == 0) {
       damage = 0;
     } else {
-      damage = Double.valueOf(Math.floor(baseDamage * (distance / maxRange))).intValue();
+      damage = baseDamage * (Double.valueOf(distance) / Double.valueOf(maxRange));
     }
 
     if (currentAmmo > 0) {
       currentAmmo--;
     }
-    return damage;
+    return Double.valueOf(Math.floor(damage)).intValue();
   }
 
   @Override
   public String toString() {
 
-    return "Chain Gun";
+    return "ChainGun";
   }
 
 }
