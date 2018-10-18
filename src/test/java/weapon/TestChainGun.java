@@ -12,25 +12,20 @@ public class TestChainGun {
    * Kamrin Langan
    * 
    */
-  
+
   /**
+   * tests that chain gun does appropriate damage at certain distances
    * 
    * @throws WeaponException
    */
   @Test
-  public void testAmmoUpdate() throws WeaponException {
-    
-    ChainGun cg = new ChainGun();
-    
-    cg.fire(15);
-    assertEquals(39, cg.getCurrentAmmo());
-    
-    cg.currentAmmo = 0;
-    assertEquals(0, cg.fire(29));
-    
-    cg.reload();
-    assertEquals(cg.maxAmmo, cg.currentAmmo);
+  public void testDamageAtADistance() throws WeaponException {
 
+    ChainGun cg = new ChainGun();
+
+    assertEquals(7, cg.fire(15));
+
+    assertEquals(0, cg.fire(55));
   }
 
 }
