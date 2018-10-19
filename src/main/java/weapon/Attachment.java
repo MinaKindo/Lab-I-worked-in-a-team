@@ -5,6 +5,10 @@ import exceptions.WeaponException;
 public abstract class Attachment implements Weapon {
   protected Weapon base;
   
+  public Attachment() {
+    System.out.println("attachment created!");
+  }
+  
   public abstract int fire(int distance) throws WeaponException;
   
   public int getBaseDamage() {

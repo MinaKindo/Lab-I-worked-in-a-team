@@ -5,7 +5,7 @@ import exceptions.WeaponException;
 public class MockWeapon extends GenericWeapon {
 
   private int damage;
-  
+
   /**
    * @author Nate Bream
    */
