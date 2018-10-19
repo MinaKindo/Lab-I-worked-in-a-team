@@ -35,7 +35,7 @@ public class PlasmaCannon extends GenericWeapon {
       throw new WeaponException("Weapon is out of shots for this round!");
     } 
     if (currentAmmo <= 0) {
-        throw new WeaponException("Weapon is out of Ammo!");
+      throw new WeaponException("Weapon is out of Ammo!");
     }
     currentAmmo--;
     shotsLeft--;

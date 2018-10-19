@@ -23,9 +23,9 @@ public class TestPlasmaCannon {
     PlasmaCannon pc = new PlasmaCannon();
 
     assertEquals(50, pc.fire(15));
-    pc.reload();
+    pc.shotsLeft = 1;
     assertEquals(37, pc.fire(10));
-    pc.reload();
+    pc.shotsLeft = 1;
     assertEquals(0, pc.fire(55));
   }
 
