@@ -13,37 +13,41 @@ public class ChainGun extends GenericWeapon {
     maxAmmo = 40;
     currentAmmo = maxAmmo;
     rateOfFire = 4;
+    shotsLeft = rateOfFire;
   }
-
+  
+  /**
+   * @author Nate Bream
+   */
   @Override
   public void updateTime(int time) {
-
+    shotsLeft = rateOfFire;
   }
 
   @Override
   public int fire(int distance) throws WeaponException {
-    int damage;
-
+    double damage = 0.0;
     if (distance < 0) {
       throw new WeaponException("Distance must be greater than 0!");
     }
+    if (shotsLeft > 0) {
+      if (distance > maxRange || currentAmmo == 0) {
+        damage = 0;
+      } else {
+        damage = baseDamage * (Double.valueOf(distance) / Double.valueOf(maxRange));
+      }
 
-    if (distance > maxRange || currentAmmo == 0) {
-      damage = 0;
-    } else {
-      damage = Double.valueOf(Math.floor(baseDamage * (distance / maxRange))).intValue();
+      if (currentAmmo > 0) {
+        currentAmmo--;
+      }
     }
-
-    if (currentAmmo > 0) {
-      currentAmmo--;
-    }
-    return damage;
+    return Double.valueOf(Math.floor(damage)).intValue();
   }
 
   @Override
   public String toString() {
 
-    return "Chain Gun";
+    return "ChainGun";
   }
 
 }

@@ -6,26 +6,25 @@ import org.junit.Test;
 
 import exceptions.WeaponException;
 
-public class TestChainGun {
+public class TestPlasmaCannon {
 
   /**
    * Kamrin Langan
-   * 
    */
 
   /**
-   * tests that chain gun does appropriate damage at certain distances
+   * tests that plasma cannon does appropriate damage at certain distances
    * 
    * @throws WeaponException
    */
   @Test
   public void testDamageAtADistance() throws WeaponException {
 
-    ChainGun cg = new ChainGun();
+    PlasmaCannon pc = new PlasmaCannon();
 
-    assertEquals(7, cg.fire(15));
+    assertEquals(50, pc.fire(15));
 
-    assertEquals(0, cg.fire(55));
+    assertEquals(0, pc.fire(55));
   }
 
 }
