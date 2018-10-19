@@ -20,12 +20,12 @@ public class Stabilizer extends Attachment {
     if (base.getCurrentAmmo() == 0) {
       base.reload();
     }
-    double addedDamage = (Double.valueOf(base.getBaseDamage()) * 0.25);
-    return base.fire(distance) + Double.valueOf(Math.floor(addedDamage)).intValue();
+    return Double.valueOf(base.fire(distance) * 1.25).intValue();
   }
+  
   @Override
   public String toString()  {
     
-    return base.toString() + "stabilizer";
+    return base.toString() + " , Stabilizer";
   }
 }
