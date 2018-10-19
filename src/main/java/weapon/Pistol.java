@@ -25,7 +25,7 @@ public class Pistol extends GenericWeapon {
     if (distance < 0) {
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
-    if (distance >= maxRange || currentAmmo == 0) {
+    if (distance > maxRange || currentAmmo == 0) {
       damage = 0;
       currentAmmo--;
     }

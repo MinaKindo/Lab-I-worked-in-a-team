@@ -15,7 +15,7 @@ public class testScope {
     
     assertEquals("Pistol , Scope", gun.toString());
     
-    assertEquals(5, gun.fire(30));
+    assertEquals(7, gun.fire(30));
     assertEquals(18, gun.fire(5));
   }
   
@@ -27,7 +27,7 @@ public class testScope {
     
     assertEquals("Pistol , Scope , Scope", gun.toString());
     assertEquals(45, gun.getMaxRange());
-    assertEquals(10, gun.fire(40));
+    assertEquals(12, gun.fire(40));
   }
   
   @Test
