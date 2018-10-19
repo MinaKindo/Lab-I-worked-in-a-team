@@ -1,6 +1,6 @@
 package exceptions;
 
-public class AttachmentException {
+public class AttachmentException extends Exception{
   public AttachmentException(String message) {
     System.out.println(message);
   }
