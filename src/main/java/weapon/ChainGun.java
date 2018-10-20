@@ -33,8 +33,10 @@ public class ChainGun extends GenericWeapon {
     if (shotsLeft > 0) {
       if (distance > maxRange || currentAmmo == 0) {
         damage = 0;
+        shotsLeft--;
       } else {
         damage = baseDamage * (Double.valueOf(distance) / Double.valueOf(maxRange));
+        shotsLeft--;
       }
 
       if (currentAmmo > 0) {

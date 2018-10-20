@@ -11,9 +11,11 @@ public class TestPistol {
   @Test
   public void testFireReachableDistance() throws WeaponException {
     Pistol gun = new Pistol();
+    
     gun.fire(23);
     assertEquals(9, gun.getCurrentAmmo());
     assertEquals(2, gun.fire(23));
+    assertEquals(8, gun.fire(10));
   }
   
   @Test

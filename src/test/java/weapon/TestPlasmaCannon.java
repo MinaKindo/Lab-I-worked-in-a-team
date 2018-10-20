@@ -18,12 +18,14 @@ public class TestPlasmaCannon {
    * @throws WeaponException
    */
   @Test
-  public void testDamageAtADistance() throws WeaponException {
+  public void testPlasmaCannon() throws WeaponException {
 
     PlasmaCannon pc = new PlasmaCannon();
 
     assertEquals(50, pc.fire(15));
-
+    pc.shotsLeft = 1;
+    assertEquals(37, pc.fire(10));
+    pc.shotsLeft = 1;
     assertEquals(0, pc.fire(55));
   }
 

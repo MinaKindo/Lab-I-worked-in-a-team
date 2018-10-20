@@ -21,19 +21,24 @@ public class PlasmaCannon extends GenericWeapon {
   @Override
   public int fire(int distance) throws WeaponException {
 
-    double damage = baseDamage * (Double.valueOf(currentAmmo) / Double.valueOf(maxAmmo));
+    double damage = Double.valueOf(baseDamage) * (Double.valueOf(currentAmmo) / Double.valueOf(maxAmmo));
     if (distance < 0) {
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
 
     if (distance > maxRange) {
-      damage = 0;
+      currentAmmo--;
+      shotsLeft--;
+      return 0;
     }
-    if (shotsLeft > 0) {
-      damage = 0;
-    }else if (currentAmmo > 0) {
-        currentAmmo--;
+    if (shotsLeft <= 0) {
+      throw new WeaponException("Weapon is out of shots for this round!");
+    } 
+    if (currentAmmo <= 0) {
+      throw new WeaponException("Weapon is out of Ammo!");
     }
+    currentAmmo--;
+    shotsLeft--;
     return Double.valueOf(Math.floor(damage)).intValue();
   }
 

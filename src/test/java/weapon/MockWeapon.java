@@ -5,7 +5,7 @@ import exceptions.WeaponException;
 public class MockWeapon extends GenericWeapon {
 
   private int damage;
-  
+
   /**
    * @author Nate Bream
    */
@@ -28,7 +28,7 @@ public class MockWeapon extends GenericWeapon {
     if (distance < 0) {
       throw new WeaponException("Range cannot be less than zero.");
     } else if (shotsLeft <= 0) {
-      return 0;
+      throw new WeaponException("Weapon is out of shots this round!");
     } else if (currentAmmo > 0 && distance >= 0 && distance <= maxRange) {
       currentAmmo--;
       shotsLeft--;

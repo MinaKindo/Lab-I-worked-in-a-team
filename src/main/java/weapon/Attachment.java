@@ -5,40 +5,46 @@ import exceptions.WeaponException;
 public abstract class Attachment implements Weapon {
   protected Weapon base;
   
+  public Attachment() {
+    System.out.println("attachment created!");
+  }
+  
   public abstract int fire(int distance) throws WeaponException;
   
   public int getBaseDamage() {
-    return 0;
+    return base.getBaseDamage();
   }
   
   public int getCurrentAmmo() {
-    return 0;
+    return base.getCurrentAmmo();
   }
   
   public int getMaxAmmo() {
-    return 0;
+    return base.getMaxAmmo();
   }
   
   public int getMaxRange() {
-    return 0;
+    return base.getMaxRange();
   }
   
   public int getNumAttachments() {
-    return 0;
+    return base.getNumAttachments();
   }
   
   public int getRateOfFire() {
-    return 0;
+    return base.getRateOfFire();
   }
   
   public int getShotsLeft() {
-    return 0;
+    return base.getShotsLeft();
   }
   
   public void reload() {
+    
   }
   
   public void updateTime​(int time) {
+    
   }
 
 }
