@@ -37,7 +37,6 @@ public class Pistol extends GenericWeapon {
     if (distance < 0 ) {
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
-
     
     //There is enough ammo but distance is unreachable
     //Can fire but will just lose ammo
@@ -46,11 +45,12 @@ public class Pistol extends GenericWeapon {
       //bothCurrent Ammo and Shots left should decrease
       currentAmmo--;
       shotsLeft--;
-    }
-    else {
+    } else if (canFire()) {
       damage = (int) (Math.floor(baseDamage * ((Double.valueOf(maxRange) - distance + 5)/Double.valueOf(maxRange))));
       currentAmmo--;
       shotsLeft--;
+    } else {
+      damage = 0;
     }
     return damage;
   }
@@ -59,6 +59,16 @@ public class Pistol extends GenericWeapon {
   @Override
   public String toString() {
     return "Pistol";
+  }
+  
+  public boolean canFire() {
+    boolean status = false;
+    if (currentAmmo > 0) {
+      if (shotsLeft > 0) {
+        status = true;
+      }
+    }
+    return status;
   }
   
 
