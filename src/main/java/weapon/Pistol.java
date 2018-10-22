@@ -37,6 +37,7 @@ public class Pistol extends GenericWeapon {
     if (distance < 0 ) {
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
+
     
     //There is enough ammo but distance is unreachable
     //Can fire but will just lose ammo
