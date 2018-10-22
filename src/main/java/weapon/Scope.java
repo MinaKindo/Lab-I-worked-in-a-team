@@ -23,7 +23,7 @@ public class Scope extends Attachment {
   @Override
   public int fire(int distance) throws WeaponException {
     
-    if (base.getMaxRange() < distance || distance <= getMaxRange()) {
+    if (base.getMaxRange() < distance && distance <= getMaxRange()) {
       return base.fire(base.getMaxRange()) + 5;
     }
     double addedScopeDamage = 1.0 + 

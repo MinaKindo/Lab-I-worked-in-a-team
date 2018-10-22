@@ -83,6 +83,11 @@ public abstract class LifeForm {
     opponent.takeHit(attackStrength);
   }
 
+  /**
+   * @author Aminata
+   * @param weapon
+   * @return true if LifeForm pick a weapon
+   */
   public boolean pickUpWeapon(Weapon weapon) {
     boolean status = false;
     if (hasWeapon() == false) {
@@ -92,12 +97,20 @@ public abstract class LifeForm {
     return status;
   }
   
+  /**
+   * @author Aminata
+   * @return true if LifeForm holds a weapon
+   */
   public boolean hasWeapon() {
-    // TODO Auto-generated method stub
-    return false;
+    boolean status = false;
+    if (this.weapon != null) {
+      status = true;
+    }
+    return status;
   }
 
   public Weapon dropWeapon() {
+    this.weapon = null;
     return weapon;  
   }
 }

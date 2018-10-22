@@ -32,7 +32,7 @@ public class Pistol extends GenericWeapon {
 
   @Override
   public int fire(int distance) throws WeaponException {
-    int damage;
+    int damage = 0;
     //Cannot fire a negative distance
     if (distance < 0 ) {
       throw new WeaponException("Distance must be greater than or equal to 0!");

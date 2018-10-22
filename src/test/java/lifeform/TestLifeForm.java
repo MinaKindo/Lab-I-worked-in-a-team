@@ -1,8 +1,13 @@
 package lifeform;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import weapon.ChainGun;
+import weapon.Pistol;
 
 /**
  * Tests the functionality provided by the LifeForm class
@@ -10,6 +15,48 @@ import org.junit.Test;
  */
 public class TestLifeForm {
 
+  /**
+   * @author Aminata
+   */
+  @Test
+  public void canPickUpWeapon() {
+    LifeForm entity = new MockLifeForm("Bob", 40, 0);
+    Pistol pistol = new Pistol();
+    //this should be true
+    assertTrue(entity.pickUpWeapon(pistol));
+    assertTrue(entity.hasWeapon());
+  }
+  
+  /**
+   * @author Aminata
+   */
+  @Test
+  public void canPickOnlyOneWeapon() {
+    LifeForm entity = new MockLifeForm("Bob", 40, 0);
+    Pistol pistol = new Pistol();
+    ChainGun chain = new ChainGun();
+    //this should be true
+    assertTrue(entity.pickUpWeapon(pistol));
+    assertTrue(entity.hasWeapon());
+    assertFalse(entity.pickUpWeapon(chain));
+  }
+  
+  /**
+   * @author Aminata
+   */
+  @Test
+  public void canDropWeapon() {
+    LifeForm entity = new MockLifeForm("Bob", 40, 0);
+    Pistol pistol = new Pistol();
+    //this should be true
+    assertTrue(entity.pickUpWeapon(pistol));
+    assertTrue(entity.hasWeapon());
+    entity.dropWeapon();
+    assertFalse(entity.hasWeapon());
+  }
+  
+  
+  
   /**
    * When a LifeForm is created, it should know its name and how many life points
    * it has.

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import exceptions.WeaponException;
 
-public class TestScope {
+public class testScope {
 
   @Test
   public void testOnPistol() throws WeaponException {

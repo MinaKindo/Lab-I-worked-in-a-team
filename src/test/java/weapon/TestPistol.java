@@ -32,6 +32,9 @@ public class TestPistol {
 
   @Test
   public void testBug1() throws WeaponException {
+    /* because Pistol fire account for shots left, 
+     * it breaks this test because shots are only 2 for pistol
+     */
     Pistol gun = new Pistol();
     for (int i=0; i<10; i++) {
       gun.fire(10);
@@ -81,10 +84,9 @@ public class TestPistol {
       }
       //try firing again , but 0 ammo should throw exception
       assertEquals(0, gun.getCurrentAmmo());
-      gun.fire(6);
-      fail();
+      assertEquals(0, gun.fire(10));
     } catch (WeaponException e) {
-      new WeaponException("Distance must be greater than or equal to 0!");
+      new WeaponException("No More shots left!");
     }
   }
 }
