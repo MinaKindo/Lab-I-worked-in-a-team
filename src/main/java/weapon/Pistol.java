@@ -37,14 +37,20 @@ public class Pistol extends GenericWeapon {
     if (distance < 0 ) {
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
-    //weapon exception should be thrown if there is no more ammo
-    if (currentAmmo == 0) {
-      throw new WeaponException("No more ammunition!");
+    //current ammo should be set to 0 when no more ammo
+    if (currentAmmo <= 0) {
+      currentAmmo = 0;
+      return 0;
+      
     }
     
     //also weapon exception should be thrown if there is no more shotsLeft
-    if (shotsLeft == 0) {
-      throw new WeaponException("No more shots!");
+    if (shotsLeft <= 0) {
+
+      shotsLeft = 0;
+      return 0;
+      
+      
     }
     
     //There is enough ammo but distance is unreachable
