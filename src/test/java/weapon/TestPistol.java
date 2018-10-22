@@ -25,6 +25,29 @@ public class TestPistol {
     assertEquals(9, gun.getCurrentAmmo());
     assertEquals(0, gun.fire(26));   
   }
+
+  @Test
+  public void testBug1() throws WeaponException {
+    Pistol gun = new Pistol();
+    for (int i=0; i<10; i++) {
+      gun.fire(10);
+    }
+
+    gun.fire(1000);
+
+    //This is what it should be
+    assertEquals(0, gun.fire(10));
+    assertEquals(0, gun.getCurrentAmmo());
+    assertEquals(0, gun.fire(10));
+    assertEquals(0, gun.getCurrentAmmo());
+
+    /* You are able to pass the following which means the program is wrong
+    assertEquals(8, gun.fire(10));
+    assertEquals(-2, gun.getCurrentAmmo());
+    assertEquals(8, gun.fire(10));
+    assertEquals(-3, gun.getCurrentAmmo());
+    */
+  }
   
   @Test
   public void testFireNegativeDistance(){
