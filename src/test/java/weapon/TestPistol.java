@@ -16,16 +16,16 @@ public class TestPistol {
   @Test
   public void testFireReachableDistance() throws WeaponException {
     Pistol gun = new Pistol();       
-    assertEquals(2, gun.fire(23));
-    assertEquals(8, gun.fire(10));
+    assertEquals(6, gun.fire(23));
+    assertEquals(9, gun.fire(10));
   }
   
   @Test
   public void testFireUnreachableDistance() throws WeaponException {
     Pistol gun = new Pistol();
-    //Cannot reach, no damage because maxRange is 25.
+    //Cannot reach, no damage because maxRange is 50.
     //but will still lose ammo
-    assertEquals(0, gun.fire(26));
+    assertEquals(0, gun.fire(51));
     assertEquals(9, gun.getCurrentAmmo());
        
   }

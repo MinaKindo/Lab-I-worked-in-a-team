@@ -13,7 +13,7 @@ public class Pistol extends GenericWeapon {
     maxAmmo = 10;
     currentAmmo = maxAmmo;
     rateOfFire = 2;
-    maxRange = 25;
+    maxRange = 50;
     baseDamage = 10;
     shotsLeft = rateOfFire;
   }
@@ -36,15 +36,6 @@ public class Pistol extends GenericWeapon {
     //Cannot fire a negative distance
     if (distance < 0 ) {
       throw new WeaponException("Distance must be greater than or equal to 0!");
-    }
-    //weapon exception should be thrown if there is no more ammo
-    if (currentAmmo == 0) {
-      throw new WeaponException("No more ammunition!");
-    }
-    
-    //also weapon exception should be thrown if there is no more shotsLeft
-    if (shotsLeft == 0) {
-      throw new WeaponException("No more shots!");
     }
     
     //There is enough ammo but distance is unreachable
