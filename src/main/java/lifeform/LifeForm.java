@@ -1,5 +1,6 @@
 package lifeform;
 
+import exceptions.WeaponException;
 import weapon.Weapon;
 
 /**
@@ -71,16 +72,25 @@ public abstract class LifeForm {
   }
   
   /**
+   * @author Aminata
    * attack method for lifeforms to attack other lifeforms
    * @param opponent
+   * @param distance 
+   * @throws WeaponException 
    */
-  public void attack(LifeForm opponent) {
+  public void attack(LifeForm opponent, int distance) throws WeaponException {
     
     if (currentLifePoints == 0) {
       System.out.println("Can't attack when dead!");
       return;
     }
-    opponent.takeHit(attackStrength);
+    if (distance <= 5) {
+      opponent.takeHit(attackStrength);
+    } else if (hasWeapon()) {
+      opponent.takeHit(weapon.fire(distance));
+    } else {
+      return;
+    }
   }
 
   /**
@@ -109,6 +119,9 @@ public abstract class LifeForm {
     return status;
   }
 
+  /**
+   * @author Aminata
+   */
   public Weapon dropWeapon() {
     this.weapon = null;
     return weapon;  

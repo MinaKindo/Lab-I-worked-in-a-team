@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import exceptions.WeaponException;
 import weapon.ChainGun;
 import weapon.Pistol;
 
@@ -55,6 +56,53 @@ public class TestLifeForm {
     assertFalse(entity.hasWeapon());
   }
   
+  /**
+   * @author Aminata
+   * @throws WeaponException 
+   */
+  @Test
+  public void canAttackWhithPistol() throws WeaponException {
+    LifeForm bob = new MockLifeForm("Bob", 40, 5);
+    LifeForm eve = new MockLifeForm("Eve", 40, 5);
+    Pistol pistol = new Pistol();
+    bob.pickUpWeapon(pistol);
+    //eve is at 10 feet, attack will be done using weapon
+    bob.attack(eve, 10);
+    //eve currentLP should be 32
+    assertEquals(32, eve.getCurrentLifePoints());
+  }
+  
+  /**
+   * @author Aminata
+   * @throws WeaponException 
+   */
+  @Test
+  public void meleeAttackWhenHasWeapon() throws WeaponException {
+    LifeForm bob = new MockLifeForm("Bob", 40, 5);
+    LifeForm eve = new MockLifeForm("Eve", 40, 5);
+    Pistol pistol = new Pistol();
+    bob.pickUpWeapon(pistol);
+    //eve is at 4 feet, less than 5
+    bob.attack(eve, 4);
+    //eve currentLP should be 35
+    assertEquals(35, eve.getCurrentLifePoints());
+  }
+  
+  /**
+   * @author Aminata
+   * @throws WeaponException 
+   */
+  @Test
+  public void meleeAttackWhenNoWeapon() throws WeaponException {
+    LifeForm bob = new MockLifeForm("Bob", 40, 5);
+    LifeForm eve = new MockLifeForm("Eve", 40, 5);
+    //eve is at 10 feet, no damage to eve
+    bob.attack(eve, 10);
+    //eve currentLP should be 35
+    assertEquals(40, eve.getCurrentLifePoints());
+  }
+  
+  
   
   
   /**
@@ -92,7 +140,7 @@ public class TestLifeForm {
   }
   
   @Test
-  public void testAttackOpponent()  {
+  public void testAttackOpponent() throws WeaponException  {
     
     LifeForm bob = new MockLifeForm("Bob", 100, 10);
     LifeForm john = new MockLifeForm("John", 100, 15);
@@ -101,23 +149,23 @@ public class TestLifeForm {
     assertEquals(10, bob.getAttackStrength());
     assertEquals(15, john.getAttackStrength());
     
-    bob.attack(john);
-    john.attack(bob);
+    bob.attack(john, 0);
+    john.attack(bob, 0);
     
     assertEquals(90, john.getCurrentLifePoints());
     assertEquals(85, bob.getCurrentLifePoints());
   }
   
   @Test
-  public void testNoAttackWhenDead()  {
+  public void testNoAttackWhenDead() throws WeaponException  {
     
     LifeForm bob = new MockLifeForm("Bob", 100, 100);
     LifeForm john = new MockLifeForm("John", 100, 15);
     
-    bob.attack(john);
+    bob.attack(john, 0);
     
     //john should be unable to attack
-    john.attack(bob);
+    john.attack(bob, 0);
     
     assertEquals(0, john.getCurrentLifePoints());
     assertEquals(100, bob.getCurrentLifePoints());
