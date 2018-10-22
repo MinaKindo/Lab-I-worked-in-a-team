@@ -9,6 +9,7 @@ import org.junit.Test;
 import exceptions.WeaponException;
 import weapon.ChainGun;
 import weapon.Pistol;
+import weapon.PlasmaCannon;
 
 /**
  * Tests the functionality provided by the LifeForm class
@@ -73,6 +74,22 @@ public class TestLifeForm {
   }
   
   /**
+   * @author Conner Hill
+   * @throws WeaponException
+   */
+  @Test
+  public void canAttackWithPlasmaCannon() throws WeaponException{
+    LifeForm bob = new MockLifeForm("Bob", 40, 5);
+    LifeForm eve = new MockLifeForm("Eve", 60, 5);
+    PlasmaCannon plasma = new PlasmaCannon();
+    bob.pickUpWeapon(plasma);
+    bob.attack(eve, 10);
+    assertEquals(10, eve.getCurrentLifePoints());
+    
+    
+  }
+  
+  /**
    * @author Aminata
    * @throws WeaponException 
    */
@@ -102,7 +119,27 @@ public class TestLifeForm {
     assertEquals(40, eve.getCurrentLifePoints());
   }
   
-  
+  /**
+   * @author Conner
+   * @throws WeaponException
+   */
+  @Test
+  public void meleeAttackWhenNoAmmo() throws WeaponException{
+    LifeForm bob = new MockLifeForm("Bob", 40, 5);
+    LifeForm eve = new MockLifeForm("Eve", 40, 5);
+    PlasmaCannon plasma = new PlasmaCannon();
+    bob.pickUpWeapon(plasma);
+    
+    for(int i = 0; i < 4; i++)
+    {
+      plasma.fire(10);
+    }
+    
+    bob.attack(eve, 4);
+    assertEquals(35, eve.getCurrentLifePoints());
+    
+    
+  }
   
   
   /**
