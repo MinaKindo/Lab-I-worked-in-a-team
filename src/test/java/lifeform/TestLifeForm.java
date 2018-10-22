@@ -76,4 +76,5 @@ public class TestLifeForm {
     assertEquals(100, bob.getCurrentLifePoints());
   }
 
+
 }

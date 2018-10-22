@@ -1,5 +1,7 @@
 package lifeform;
 
+import weapon.Weapon;
+
 /**
  * Keeps track of the information associated with a simple life form. Also
  * provides the functionality related to the life form.
@@ -9,6 +11,7 @@ public abstract class LifeForm {
   protected String myName;
   protected int currentLifePoints;
   protected int attackStrength;
+  protected Weapon weapon;
 
   /**
    * Creates an instance
@@ -80,4 +83,21 @@ public abstract class LifeForm {
     opponent.takeHit(attackStrength);
   }
 
+  public boolean pickUpWeapon(Weapon weapon) {
+    boolean status = false;
+    if (hasWeapon() == false) {
+      this.weapon = weapon;
+      status = true;
+    }    
+    return status;
+  }
+  
+  public boolean hasWeapon() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  public Weapon dropWeapon() {
+    return weapon;  
+  }
 }
