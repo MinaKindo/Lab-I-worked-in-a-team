@@ -66,6 +66,10 @@ public class TestPistol {
     }
   }
   
+  /*
+   * @author Aminata
+   * this test should fix the bug
+   */
   @Test
   public void testZeroAmmo() {
     
