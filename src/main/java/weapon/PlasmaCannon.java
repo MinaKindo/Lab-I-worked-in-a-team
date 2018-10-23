@@ -18,6 +18,9 @@ public class PlasmaCannon extends GenericWeapon {
     shotsLeft = rateOfFire;
   }
 
+  /**
+   * @author Conner
+   */
   @Override
   public int fire(int distance) throws WeaponException {
 

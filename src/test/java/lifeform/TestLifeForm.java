@@ -62,7 +62,7 @@ public class TestLifeForm {
    * @throws WeaponException 
    */
   @Test
-  public void canAttackWhithPistol() throws WeaponException {
+  public void canAttackWithPistol() throws WeaponException {
     LifeForm bob = new MockLifeForm("Bob", 40, 5);
     LifeForm eve = new MockLifeForm("Eve", 40, 5);
     Pistol pistol = new Pistol();
@@ -70,7 +70,7 @@ public class TestLifeForm {
     //eve is at 10 feet, attack will be done using weapon
     bob.attack(eve, 10);
     //eve currentLP should be 32
-    assertEquals(32, eve.getCurrentLifePoints());
+    assertEquals(31, eve.getCurrentLifePoints());
   }
   
   /**

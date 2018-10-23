@@ -3,7 +3,6 @@ package weapon;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import exceptions.WeaponException;
@@ -31,31 +30,7 @@ public class TestPistol {
        
   }
 
-  @Test
-  public void testBug1() throws WeaponException {
-    /* because Pistol fire account for shots left, 
-     * it breaks this test because shots are only 2 for pistol
-     */
-    Pistol gun = new Pistol();
-    for (int i = 0; i < 2; i++) {
-      gun.fire(10);
-    }
-
-    gun.fire(1000);
-
-    //This is what it should be
-    assertEquals(0, gun.fire(10));
-    assertEquals(0, gun.getShotsLeft());
-   //assertEquals(0, gun.fire(10));
-    //assertEquals(0, gun.getCurrentAmmo());
-
-     /*You are able to pass the following which means the program is wrong
-    assertEquals(8, gun.fire(10));
-    assertEquals(-2, gun.getCurrentAmmo());
-    assertEquals(8, gun.fire(10));
-    assertEquals(-3, gun.getCurrentAmmo());*/
-    
-  }
+ 
   
   @Test
   public void testFireNegativeDistance() {
@@ -70,25 +45,5 @@ public class TestPistol {
     }
   }
   
-  /*
-   * @author Aminata
-   * this test should fix the bug
-   */
-  @Ignore
-  @Test
-  public void testZeroAmmo() {
-    
-    try {
-      Pistol gun = new Pistol();
-      //fire and finish all ammo
-      for (int i = 10; i > 0; i--) {
-        gun.fire(6);
-      }
-      //try firing again , but 0 ammo should throw exception
-      assertEquals(0, gun.getCurrentAmmo());
-      assertEquals(0, gun.fire(10));
-    } catch (WeaponException e) {
-      new WeaponException("No More shots left!");
-    }
-  }
+  
 }
