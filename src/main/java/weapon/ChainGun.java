@@ -9,7 +9,7 @@ public class ChainGun extends GenericWeapon {
    */
   public ChainGun() {
     baseDamage = 15;
-    maxRange = 30;
+    maxRange = 60;
     maxAmmo = 40;
     currentAmmo = maxAmmo;
     rateOfFire = 4;
@@ -30,19 +30,27 @@ public class ChainGun extends GenericWeapon {
     if (distance < 0) {
       throw new WeaponException("Distance must be greater than 0!");
     }
-    if (shotsLeft > 0) {
-      if (distance > maxRange || currentAmmo == 0) {
-        damage = 0;
-        shotsLeft--;
-      } else {
-        damage = baseDamage * (Double.valueOf(distance) / Double.valueOf(maxRange));
-        shotsLeft--;
-      }
-
-      if (currentAmmo > 0) {
-        currentAmmo--;
-      }
+    
+    if (shotsLeft <= 0) {
+      shotsLeft = 0;
+      return 0;
+     } 
+    
+    if (currentAmmo <= 0) {
+      currentAmmo = 0;
+      return 0;
+     }
+    
+    if (distance > maxRange)  {
+      currentAmmo--;
+      shotsLeft--;
+      return 0;
     }
+    
+    damage = baseDamage * (Double.valueOf(distance) / Double.valueOf(maxRange));
+    shotsLeft--;
+    currentAmmo--;
+
     return Double.valueOf(Math.floor(damage)).intValue();
   }
 

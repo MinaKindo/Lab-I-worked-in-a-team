@@ -28,7 +28,7 @@ public abstract class Attachment implements Weapon {
   }
   
   public int getNumAttachments() {
-    return base.getNumAttachments();
+    return 1 + base.getNumAttachments();
   }
   
   public int getRateOfFire() {
@@ -40,11 +40,11 @@ public abstract class Attachment implements Weapon {
   }
   
   public void reload() {
-    
+    base.reload();
   }
   
   public void updateTime​(int time) {
-    
+    base.updateTime(time);
   }
 
 }

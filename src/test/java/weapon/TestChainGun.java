@@ -23,9 +23,9 @@ public class TestChainGun {
 
     ChainGun cg = new ChainGun();
 
-    assertEquals(7, cg.fire(15));
-    assertEquals(10, cg.fire(20));
-    assertEquals(0, cg.fire(55));
+    assertEquals(3, cg.fire(15));
+    assertEquals(5, cg.fire(20));
+    assertEquals(13, cg.fire(55));
   }
 
 }

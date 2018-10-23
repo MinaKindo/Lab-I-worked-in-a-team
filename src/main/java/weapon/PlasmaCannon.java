@@ -9,7 +9,7 @@ public class PlasmaCannon extends GenericWeapon {
     currentAmmo = maxAmmo;
     baseDamage = 50;
     rateOfFire = 1;
-    maxRange = 20;
+    maxRange = 40;
     shotsLeft = rateOfFire;
   }
 
@@ -26,18 +26,22 @@ public class PlasmaCannon extends GenericWeapon {
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
 
+    if (shotsLeft <= 0) {
+      shotsLeft = 0;
+      return 0;
+    } 
+    
+    if (currentAmmo <= 0) {
+      currentAmmo = 0;
+      return 0;
+    }
+    
     if (distance > maxRange) {
       currentAmmo--;
       shotsLeft--;
       return 0;
     }
-    if (shotsLeft <= 0) {
-      shotsLeft = 0;
-      return 0;
-    } 
-    if (currentAmmo <= 0) {
-      throw new WeaponException("Weapon is out of Ammo!");
-    }
+    
     currentAmmo--;
     shotsLeft--;
     return Double.valueOf(Math.floor(damage)).intValue();

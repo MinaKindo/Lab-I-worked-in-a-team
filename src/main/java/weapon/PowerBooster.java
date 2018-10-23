@@ -1,18 +1,16 @@
 package weapon;
 
+import exceptions.AttachmentException;
 import exceptions.WeaponException;
 
 public class PowerBooster extends Attachment {
   
-  public PowerBooster(Weapon baseWeapon)  {
+  public PowerBooster(Weapon baseWeapon) throws AttachmentException  {
+   /** if (getNumAttachments() >= 2) {
+      throw new AttachmentException("Weapon already has 2 attachments!");
+    }*/
     base = baseWeapon;
     System.out.println("PowerBooster Added!");
-  }
-
-  @Override
-  public void updateTime(int time) {
-    // TODO Auto-generated method stub
-    
   }
 
   @Override
@@ -24,8 +22,14 @@ public class PowerBooster extends Attachment {
   
   @Override
   public String toString()  {
-    
     return base.toString() + " , PowerBooster";
+  }
+
+
+
+  @Override
+  public void updateTime(int time) {
+    base.updateTime(time);
   }
 
 }

@@ -51,5 +51,9 @@ public abstract class GenericWeapon implements Weapon {
   public int getShotsLeft() {
     return shotsLeft;
   }
+  
+  public void updateTime(int time)  {
+    shotsLeft = rateOfFire;
+  }
 
 }

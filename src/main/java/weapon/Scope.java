@@ -1,10 +1,14 @@
 package weapon;
 
+import exceptions.AttachmentException;
 import exceptions.WeaponException;
 
 public class Scope extends Attachment {
   
-  public Scope(Weapon baseWeapon) {
+  public Scope(Weapon baseWeapon) throws AttachmentException {
+   /** if (getNumAttachments() >= 2) {
+      throw new AttachmentException("Weapon already has 2 attachments!");
+    }*/
     base = baseWeapon;
     System.out.println("Scope added!");
   }
@@ -16,8 +20,7 @@ public class Scope extends Attachment {
 
   @Override
   public void updateTime(int time) {
-    // TODO Auto-generated method stub
-    
+    base.updateTime(time);
   }
 
   @Override

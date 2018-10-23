@@ -20,14 +20,7 @@ public class Pistol extends GenericWeapon {
   
   @Override
   public void updateTime(int time) {
-    myTime = time;
-    //to make sure there is enough ammo
-    if (currentAmmo > rateOfFire) {
-      shotsLeft = rateOfFire;
-    } else {
-      shotsLeft = currentAmmo;
-    }
-     
+      shotsLeft = rateOfFire;  
   }
 
   @Override
