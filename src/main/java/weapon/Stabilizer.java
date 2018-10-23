@@ -6,10 +6,11 @@ import exceptions.WeaponException;
 public class Stabilizer extends Attachment {
   
   public Stabilizer(Weapon baseWeapon) throws AttachmentException  {
-   /** if (getNumAttachments() >= 2) {
-      throw new AttachmentException("Weapon already has 2 attachments!");
-    }*/
+   
     base = baseWeapon;
+    if (getNumAttachments() > 2) {
+      throw new AttachmentException("Weapon already has 2 attachments!");
+    }
     System.out.println("Stabilizer added!");
   }
 

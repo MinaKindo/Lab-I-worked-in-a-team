@@ -59,8 +59,12 @@ public class TestStabilizer {
     Weapon gun = new ChainGun();
     gun = new Stabilizer(gun);
     gun = new Stabilizer(gun);
-    gun = new Stabilizer(gun);
+    try {
+      gun = new Stabilizer(gun);
+    } catch (AttachmentException e) {
+      e.printStackTrace();
+    }
     
-    assertEquals(3, gun.getNumAttachments());
+    assertEquals(2, gun.getNumAttachments());
   }
 }
