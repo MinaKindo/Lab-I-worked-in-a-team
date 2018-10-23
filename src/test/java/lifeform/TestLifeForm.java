@@ -89,21 +89,8 @@ public class TestLifeForm {
     
   }
   
-  /**
-   * @author Aminata
-   * @throws WeaponException 
-   */
-  @Test
-  public void meleeAttackWhenHasWeapon() throws WeaponException {
-    LifeForm bob = new MockLifeForm("Bob", 40, 5);
-    LifeForm eve = new MockLifeForm("Eve", 40, 5);
-    Pistol pistol = new Pistol();
-    bob.pickUpWeapon(pistol);
-    //eve is at 4 feet, less than 5
-    bob.attack(eve, 4);
-    //eve currentLP should be 35
-    assertEquals(35, eve.getCurrentLifePoints());
-  }
+  
+  
   
   /**
    * @author Aminata
@@ -133,11 +120,52 @@ public class TestLifeForm {
     for(int i = 0; i < 4; i++)
     {
       plasma.fire(10);
+      plasma.updateTime(9);
     }
     
     bob.attack(eve, 4);
     assertEquals(35, eve.getCurrentLifePoints());
     
+    
+  }
+  
+  /**
+   * @author Conner
+   */
+  @Test
+  public void meleeAttackOverFiveFeet() throws WeaponException{
+    LifeForm bob = new MockLifeForm("Bob", 40, 5);
+    LifeForm eve = new MockLifeForm("Eve", 40, 5);
+    
+    bob.attack(eve, 30);
+    assertEquals(40, eve.getCurrentLifePoints());
+    
+    bob.attack(eve, 3);
+    assertEquals(35, eve.getCurrentLifePoints());
+    
+    bob.attack(eve, 30);
+    assertEquals(35, eve.getCurrentLifePoints());
+  }
+  
+  /**
+   * @author Conner
+   */
+  @Test
+  public void testReload() throws WeaponException {
+    LifeForm bob = new MockLifeForm("Bob", 40, 5);
+    LifeForm eve = new MockLifeForm("Eve", 40, 5);
+    Pistol pistol = new Pistol();
+    bob.pickUpWeapon(pistol);
+    
+    for(int i = 0; i < 2; i++) {
+      bob.attack(eve, 10);
+    }
+    
+    assertEquals(8, pistol.getCurrentAmmo());
+    
+    pistol.reload();
+    
+    assertEquals(10, pistol.getCurrentAmmo());
     
   }
   

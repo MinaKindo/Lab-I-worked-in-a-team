@@ -29,11 +29,7 @@ public class TestPistol {
     assertEquals(9, gun.getCurrentAmmo());
        
   }
-<<<<<<< HEAD
 
- 
-=======
->>>>>>> b505c9001f4ffc047eae3dee4f171dd1fe0326df
   
   @Test
   public void testFireNegativeDistance() {
