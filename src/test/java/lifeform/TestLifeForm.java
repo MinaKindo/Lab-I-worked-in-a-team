@@ -163,8 +163,8 @@ public class TestLifeForm {
 
   }
 
+  //End of lab 4 tests
   
-  //End of lab 4 tests****************************
   /**
    * When a LifeForm is created, it should know its name and how many life points
    * it has.
