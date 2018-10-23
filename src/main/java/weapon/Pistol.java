@@ -1,5 +1,7 @@
 package weapon;
 
+
+
 import exceptions.WeaponException;
 /**
  * 
@@ -21,31 +23,38 @@ public class Pistol extends GenericWeapon {
   @Override
   public void updateTime(int time) {
       shotsLeft = rateOfFire;  
+
   }
 
-  @Override
+
+  @Override  
   public int fire(int distance) throws WeaponException {
     int damage = 0;
-    //Cannot fire a negative distance
-    if (distance < 0 ) {
+    
+    if(distance < 0) {    // Cannot fire negative distance
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
     
-    //There is enough ammo but distance is unreachable
-    //Can fire but will just lose ammo
-    if (distance > maxRange) {
-      damage = 0;
-      //bothCurrent Ammo and Shots left should decrease
-      currentAmmo--;
-      shotsLeft--;
-    } else if (canFire()) {
-      damage = (int) (Math.floor(baseDamage * ((Double.valueOf(maxRange) - distance + 5)/Double.valueOf(maxRange))));
-      currentAmmo--;
-      shotsLeft--;
-    } else {
-      damage = 0;
+    if(currentAmmo <= 0) {  
+      currentAmmo = 0;
+      return 0;
     }
+    
+    if(shotsLeft <= 0) {
+      shotsLeft = 0;
+      return 0;
+    }
+    
+    if(distance > maxRange) { // No damage if past maxRange
+      currentAmmo--;
+      shotsLeft--;
+      return 0;}
+    
+    damage = (int) (Math.floor(baseDamage * ((Double.valueOf(maxRange) - distance + 5)/Double.valueOf(maxRange))));
+    currentAmmo--;
+    shotsLeft--;
     return damage;
+    
   }
   
 
@@ -54,15 +63,7 @@ public class Pistol extends GenericWeapon {
     return "Pistol";
   }
   
-  public boolean canFire() {
-    boolean status = false;
-    if (currentAmmo > 0) {
-      if (shotsLeft > 0) {
-        status = true;
-      }
-    }
-    return status;
-  }
+
   
 
 }
