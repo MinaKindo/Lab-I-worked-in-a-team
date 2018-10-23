@@ -6,7 +6,7 @@ import exceptions.WeaponException;
 public class PowerBooster extends Attachment {
   
   public PowerBooster(Weapon baseWeapon) throws AttachmentException  {
-   /** if (getNumAttachments() >= 2) {
+   /* if (getNumAttachments() >= 2) {
       throw new AttachmentException("Weapon already has 2 attachments!");
     }*/
     base = baseWeapon;

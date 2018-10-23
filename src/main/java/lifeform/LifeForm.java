@@ -72,7 +72,7 @@ public abstract class LifeForm {
   }
   
   /**
-   * @author Aminata
+   * @author Conner
    * attack method for lifeforms to attack other lifeforms
    * @param opponent
    * @param distance 
@@ -84,14 +84,21 @@ public abstract class LifeForm {
       System.out.println("Can't attack when dead!");
       return;
     }
-    if (distance <= 5) {
-      opponent.takeHit(attackStrength);
-    } else if (hasWeapon()) {
+    
+    if(hasWeapon() && weapon.getCurrentAmmo() > 0) {
       opponent.takeHit(weapon.fire(distance));
-    } else {
+      return;
+    }else if(distance <= 5) {
+      opponent.takeHit(attackStrength);
+      return;
+    }else if(distance > 5){
+      opponent.takeHit(0);
       return;
     }
+    
   }
+  
+  
 
   /**
    * @author Aminata
