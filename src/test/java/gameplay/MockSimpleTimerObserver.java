@@ -1,9 +1,9 @@
 package gameplay;
 
-public class MockSimpleTimerObserver implements TimerObserver  {
+public class MockSimpleTimerObserver implements TimerObserver {
   public int myTime = 0;
-  
-  public void updateTime(int time)  {
+
+  public void updateTime(int time) {
     myTime = time;
   }
 }

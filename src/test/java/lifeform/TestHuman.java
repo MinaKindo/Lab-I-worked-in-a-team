@@ -18,29 +18,29 @@ public class TestHuman {
     assertEquals(50, negArmorMan.getCurrentLifePoints());
     assertEquals(0, negArmorMan.getArmorPoints());
   }
-  
+
   @Test
-  public void testHumanNoArmor()  {
-    
+  public void testHumanNoArmor() {
+
     Human man = new Human("Man", 50, 0);
-    
+
     man.takeHit(45);
     assertEquals(5, man.getCurrentLifePoints());
   }
-  
+
   @Test
-  public void testHumanWithArmor()  {
-    
+  public void testHumanWithArmor() {
+
     Human man = new Human("Man", 50, 15);
     man.takeHit(25);
-    
+
     assertEquals(40, man.getCurrentLifePoints());
-    
-    //man life points should take no damage
+
+    // man life points should take no damage
     man.takeHit(5);
     assertEquals(40, man.getCurrentLifePoints());
-    
-    //man should die
+
+    // man should die
     man.takeHit(55);
     assertEquals(0, man.getCurrentLifePoints());
   }

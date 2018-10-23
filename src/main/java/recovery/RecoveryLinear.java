@@ -6,6 +6,7 @@ public class RecoveryLinear implements RecoveryBehavior {
 
   /**
    * constructor for linear recovery
+   * 
    * @param recoveryAmount
    */
   public RecoveryLinear(int recoveryAmount) {

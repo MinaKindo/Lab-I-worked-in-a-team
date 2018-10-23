@@ -1,16 +1,17 @@
 package weapon;
 
-
-
 import exceptions.WeaponException;
+
 /**
- * 
+ * class for weapon of type pistol
  * @author Aminata
  *
  */
-
 public class Pistol extends GenericWeapon {
-  public int myTime = 0; 
+  
+  /**
+   * constructor for pistol
+   */
   public Pistol() {
     maxAmmo = 10;
     currentAmmo = maxAmmo;
@@ -19,51 +20,46 @@ public class Pistol extends GenericWeapon {
     baseDamage = 10;
     shotsLeft = rateOfFire;
   }
-  
+
   @Override
   public void updateTime(int time) {
-      shotsLeft = rateOfFire;  
-
+    shotsLeft = rateOfFire;
   }
 
-
-  @Override  
+  @Override
   public int fire(int distance) throws WeaponException {
-    int damage = 0;
     
-    if(distance < 0) {    // Cannot fire negative distance
+    if (distance < 0) { // Cannot fire negative distance
       throw new WeaponException("Distance must be greater than or equal to 0!");
     }
-    
-    if(currentAmmo <= 0) {  
+
+    if (currentAmmo <= 0) {
       currentAmmo = 0;
       return 0;
     }
-    
-    if(shotsLeft <= 0) {
+
+    if (shotsLeft <= 0) {
       shotsLeft = 0;
       return 0;
     }
-    
-    if(distance > maxRange) { // No damage if past maxRange
+
+    if (distance > maxRange) { // No damage if past maxRange
       currentAmmo--;
       shotsLeft--;
-      return 0;}
-    
-    damage = (int) (Math.floor(baseDamage * ((Double.valueOf(maxRange) - distance + 5)/Double.valueOf(maxRange))));
+      return 0;
+    }
+    double damage = (Double.valueOf(baseDamage)
+        * (Double.valueOf(maxRange) - Double.valueOf(distance) 
+            + Double.valueOf(10))) / Double.valueOf(maxRange);
     currentAmmo--;
     shotsLeft--;
-    return damage;
-    
+    return Double.valueOf(Math.floor(damage)).intValue();
+
   }
-  
 
   @Override
   public String toString() {
     return "Pistol";
   }
-  
-
-  
 
 }

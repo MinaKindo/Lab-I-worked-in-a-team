@@ -6,6 +6,7 @@ public class Human extends LifeForm {
 
   /**
    * constructor for Humans
+   * 
    * @param name
    * @param life
    * @param armor
@@ -27,6 +28,7 @@ public class Human extends LifeForm {
 
   /**
    * sets armor points
+   * 
    * @param points
    */
   public void setArmorPoints(int points) {
@@ -37,17 +39,17 @@ public class Human extends LifeForm {
       this.armorPoints = points;
     }
   }
-  
+
   @Override
   public void takeHit(int damage) {
-    
+
     if (this.currentLifePoints - damage + armorPoints <= 0) {
 
       currentLifePoints = 0;
       System.out.println("LifeForm is dead!");
       return;
     }
-    if (damage <= armorPoints)  {
+    if (damage <= armorPoints) {
       return;
     } else {
       this.currentLifePoints = currentLifePoints - damage + armorPoints;

@@ -16,26 +16,30 @@ public abstract class LifeForm {
 
   /**
    * Creates an instance
-   * @param name the name of the life form
-   * @param points the current starting life points of the life form
+   * 
+   * @param name
+   *          the name of the life form
+   * @param points
+   *          the current starting life points of the life form
    */
   public LifeForm(String name, int points) {
     myName = name;
     currentLifePoints = points;
     attackStrength = 1;
   }
-  
+
   /**
    * constructor for lifeforms with attack
+   * 
    * @param name
    * @param points
    * @param attack
    */
-  public LifeForm(String name, int points, int attack)  {
+  public LifeForm(String name, int points, int attack) {
     myName = name;
     currentLifePoints = points;
     attackStrength = attack;
-    
+
   }
 
   /**
@@ -66,39 +70,36 @@ public abstract class LifeForm {
       this.currentLifePoints = currentLifePoints - damage;
     }
   }
-  
-  public int getAttackStrength()  {
+
+  public int getAttackStrength() {
     return attackStrength;
   }
-  
+
   /**
-   * @author Conner
-   * attack method for lifeforms to attack other lifeforms
+   * @author Conner attack method for lifeforms to attack other lifeforms
    * @param opponent
-   * @param distance 
-   * @throws WeaponException 
+   * @param distance
+   * @throws WeaponException
    */
   public void attack(LifeForm opponent, int distance) throws WeaponException {
-    
+
     if (currentLifePoints == 0) {
       System.out.println("Can't attack when dead!");
       return;
     }
-    
-    if(hasWeapon() && weapon.getCurrentAmmo() > 0) {
+
+    if (hasWeapon() && weapon.getCurrentAmmo() > 0) {
       opponent.takeHit(weapon.fire(distance));
       return;
-    }else if(distance <= 5) {
+    } else if (distance <= 5) {
       opponent.takeHit(attackStrength);
       return;
-    }else if(distance > 5){
+    } else if (distance > 5) {
       opponent.takeHit(0);
       return;
     }
-    
+
   }
-  
-  
 
   /**
    * @author Aminata
@@ -110,10 +111,10 @@ public abstract class LifeForm {
     if (hasWeapon() == false) {
       this.weapon = weapon;
       status = true;
-    }    
+    }
     return status;
   }
-  
+
   /**
    * @author Aminata
    * @return true if LifeForm holds a weapon
@@ -130,7 +131,11 @@ public abstract class LifeForm {
    * @author Aminata
    */
   public Weapon dropWeapon() {
+    Weapon oldWeapon = null;
+    if (this.weapon != null) {
+      oldWeapon = this.weapon;
+    }
     this.weapon = null;
-    return weapon;  
+    return oldWeapon;
   }
 }

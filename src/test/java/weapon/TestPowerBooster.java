@@ -1,6 +1,6 @@
 package weapon;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -13,41 +13,41 @@ public class TestPowerBooster {
   public void testOnChainGun() throws WeaponException, AttachmentException {
     Weapon gun = new ChainGun();
     gun = new PowerBooster(gun);
-    
-    assertEquals("ChainGun , PowerBooster", gun.toString());
-    
+
+    assertEquals("ChainGun +PowerBooster", gun.toString());
+
     assertEquals(6, gun.fire(15));
   }
-  
+
   @Test
-  public void testTwoOnChainGun() throws WeaponException, AttachmentException  {
+  public void testTwoOnChainGun() throws WeaponException, AttachmentException {
     Weapon gun = new ChainGun();
     gun = new PowerBooster(gun);
     gun = new PowerBooster(gun);
-    
-    assertEquals("ChainGun , PowerBooster , PowerBooster", gun.toString());
+
+    assertEquals("ChainGun +PowerBooster +PowerBooster", gun.toString());
     assertEquals(12, gun.fire(15));
   }
-  
+
   @Test
-  public void testOnPistolWithScope() throws WeaponException, AttachmentException  {
+  public void testOnPistolWithScope() throws WeaponException, AttachmentException {
     Weapon gun = new Pistol();
     gun = new Scope(gun);
     gun = new PowerBooster(gun);
-    
-    assertEquals("Pistol , Scope , PowerBooster", gun.toString());
-    
-    assertEquals(32, gun.fire(10));
+
+    assertEquals("Pistol +Scope +PowerBooster", gun.toString());
+
+    assertEquals(36, gun.fire(10));
   }
-  
+
   @Test
   public void testOnPlasmaCannonWithStabilizer() throws WeaponException, AttachmentException {
     Weapon gun = new PlasmaCannon();
     gun = new Stabilizer(gun);
     gun = new PowerBooster(gun);
-    
-    assertEquals("PlasmaCannon , Stabilizer , PowerBooster", gun.toString());
-    
+
+    assertEquals("PlasmaCannon +Stabilizer +PowerBooster", gun.toString());
+
     assertEquals(124, gun.fire(10));
   }
 

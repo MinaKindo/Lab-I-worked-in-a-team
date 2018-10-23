@@ -55,17 +55,17 @@ public class TestAlien {
     Alien blueMan = new Alien("blueMan", 100, rb, 5);
     assertEquals(5, blueMan.getRecoveryRate());
   }
-  
+
   @Test
   public void testNoRecoveryRate() throws RecoveryRateException {
-    
+
     Alien blueMan = new Alien("blueMan", 100, rb, 0);
     SimpleTimer timer = new SimpleTimer();
     timer.addTimeObserver(blueMan);
-    
+
     blueMan.takeHit(25);
     timer.timeChanged();
-    
+
     assertEquals(75, blueMan.getCurrentLifePoints());
   }
 
@@ -113,14 +113,14 @@ public class TestAlien {
       System.out.println("Negative Recovery Rate!");
     }
   }
-  
+
   @Test
   public void testTrackTime() throws RecoveryRateException {
-    
+
     Alien blueMan = new Alien("blueMan", 100, rb, 3);
     SimpleTimer timer = new SimpleTimer();
     timer.addTimeObserver(blueMan);
-    
+
     blueMan.takeHit(5);
     timer.timeChanged();
     assertEquals(1, timer.getRound());
@@ -128,16 +128,16 @@ public class TestAlien {
 
   @Test
   public void testRemoveObserver() throws RecoveryRateException {
-    
+
     Alien blueMan = new Alien("blueMan", 100, rb, 1);
     SimpleTimer timer = new SimpleTimer();
     timer.addTimeObserver(blueMan);
-    
+
     blueMan.takeHit(5);
     timer.removeTimeObserver(blueMan);
-    
+
     timer.timeChanged();
     assertEquals(95, blueMan.getCurrentLifePoints());
-    
+
   }
 }
