@@ -1,7 +1,7 @@
 
-# Lab 4 Description
+# Lab 5 Description
 
-Assembling the Weapons - adding weapon functionality to our game.
+Creating an environment - adding/modifying environment functionality of our game.
 
 # Team Contract
 
@@ -33,7 +33,6 @@ Answer: Work will be assigned based on each individual's strength, after the wor
 
 **What will you do if one or more team members are not doing their share of the work?**
 
-<<<<<<< HEAD
 Example answer: We are aware of the difference in ability among the team
 members. While picking the tasks (according to the answer for the above
 question), some member can consider take less work. As long as everybody keeps
